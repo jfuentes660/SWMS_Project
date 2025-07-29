@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "./ui/Card";
 import { Badge } from "./ui/Badge";
+import { fetchBinData } from "../api/binApi"; // Importing the API function to fetch bin data
 
-const binData = [
+/* const binData = [
   { id: "103", location: "Elm St & 7th Ave", status: "FULL", days: 2, level: 99 },
   { id: "207", location: "7th Avenue", status: "95%", days: 1.9, level: 95 },
   { id: "191", location: "7th Ave 191", status: "Error", days: 1.8, level: "OFF" },
@@ -13,10 +14,22 @@ const binData = [
   { id: "749", location: "Main St & 2nd Ave", status: "92%", days: 1.7, level: 92 },
   { id: "850", location: "Riverwalk Park", status: "FULL", days: 2.4, level: 100 },
   { id: "961", location: "Market Square", status: "80%", days: 1.4, level: 80 },
-];
+]; */
 
 
 export function CollectionEfficiencyTable() {
+  const [binData, setBinData] = useState([]); // State to hold bin data
+
+  useEffect(() => { // Fetch bin data when component mounts
+    const loadData = async () => {
+      const data = await fetchBinData(); // Call the API to fetch bin data
+      setBinData(data); // Update state with fetched data
+    };
+    loadData(); // Load data on component mount
+  }, []);
+
+  // rest of the code i kept the same way you had it Devin. 
+
   return (
     <Card>
       <CardContent className="p-4">

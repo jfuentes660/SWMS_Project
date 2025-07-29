@@ -1,11 +1,11 @@
-// import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "./ui/Card";
-// import { fetchBinData } from "../api/binApi";
+import { fetchBinData } from "../api/binApi";
 
 export function AlertsPanel() {
-  // const [binData, setBinData] = useState([]);
+  const [binData, setBinData] = useState([]);
   // TEMPORARY bin data (mock)
-  const binData = [
+/*   const binData = [
     { id: "103", location: "Elm St & 7th Ave", status: "FULL", days: 2, level: 99 },
     { id: "207", location: "7th Avenue", status: "95%", days: 1.9, level: 95 },
     { id: "191", location: "7th Ave 191", status: "Error", days: 1.8, level: "OFF" },
@@ -16,16 +16,17 @@ export function AlertsPanel() {
     { id: "749", location: "Main St & 2nd Ave", status: "92%", days: 1.7, level: 92 },
     { id: "850", location: "Riverwalk Park", status: "FULL", days: 2.4, level: 100 },
     { id: "961", location: "Market Square", status: "80%", days: 1.4, level: 80 },
-  ];
-/*   useEffect(() => {
+  ]; */
+   useEffect(() => {
     const loadData = async () => {
       const data = await fetchBinData();
       setBinData(data);
     };
     loadData();
-  }, []); */
+  }, []); 
 
-  // Filter bins to show alerts
+  // ---------------------------changing the above code to replace mock data with API call - Jfuentes 
+  // Filter bins to show alerts  
   const alerts = binData.filter(
     (bin) =>
       bin.status === "FULL" ||
