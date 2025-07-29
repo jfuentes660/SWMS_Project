@@ -1,5 +1,6 @@
-SWMS
-Smart Waste Management System
+# SWMS
+
+# Smart Waste Management System
 
 Overview
 The Smart Waste Management System (SWMS) is a full-stack application for monitoring and managing waste collection using IoT devices, real-time data, and predictive analytics.
